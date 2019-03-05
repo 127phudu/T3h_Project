@@ -1,0 +1,139 @@
+@extends('frontend.layouts.userHome')
+
+@section('bannerRight')
+<?php
+    $images = isset($product->images) ? json_decode($product->images) : array();
+?>
+<div class="w3l_banner_nav_right">
+
+    <div class="agileinfo_single">
+        <h5><?php echo $product->name; ?></h5>
+        <div class="col-md-4 agileinfo_single_left">
+            <div class="flexslider">
+                <ul class="slides">
+                    @foreach($images as $image_key =>$image)
+                        <li data-thumb="{{ asset($image) }}">
+                            <img src="{{ asset($image) }}" class="img-responsive"/>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+
+        </div>
+        <div class="col-md-8 agileinfo_single_right">
+
+            <div class="w3agile_description">
+                <label style="font-size: 20px">Giới thiệu :</label>
+                <p><?php echo $product->intro; ?></p>
+            </div>
+            <div class="snipcart-item block">
+                <div class="bid">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <form class="form-horizontal"  action="{{ url('shop/product/'.$product->id) }}" method="post">
+                        @csrf
+                        <div class="form-group">
+                            <label for="priceCore" class="control-label col-sm-3">Người ra giá cao nhất: </label>
+                            <div class="col-sm-3">
+                                <p id="best_user" style="padding-top: 7px"> <?php echo $best_user_name; ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="priceCore" class="control-label col-sm-3">Giá hiện tại: </label>
+                            <div class="col-sm-3">
+                                <p id="price"  style="padding-top: 7px"> <?php echo $product->priceSale; ?> VND</p>
+                            </div>
+                            <input type="hidden" name="user_id" value="{{ $cur_user_id }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="priceCore" class="control-label col-sm-3" style="padding-left: 0">Thời gian còn lại:  </label>
+                            <div class="col-sm-3">
+                                <p id="mytimer" style="padding-top: 7px"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="priceSale" class="control-label col-sm-3">Giá đưa ra: </label>
+                            <div class="col-sm-4">
+                                <input  name="priceSale" class="form-control tinymce" id="priceSale" value="{{ old('priceSale') }}">
+                            </div>
+                        </div>
+                            <button type="submit" name="submit" class="btn btn-danger">Ra giá</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+        <div class="">
+            <label style="font-size: 18px; margin-top: 30px">Mô tả chi tiết:</label>
+            <p><?php echo $product->desc; ?></p>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<link rel="stylesheet" href="{{ asset('user-asset/css/flexslider.css') }}" type="text/css" media="screen" property="" />
+<script defer src="{{ asset('user-asset/js/jquery.flexslider.js') }}"></script>
+<script type="text/javascript">
+    $(window).load(function() {
+        $('.flexslider').flexslider({
+            animation: "slide",
+            controlNav: "thumbnails"
+        });
+    });
+</script>
+
+<script src="https://js.pusher.com/4.3/pusher.min.js"></script>
+<script type="text/javascript">
+    //Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
+        cluster: 'ap1',
+        encrypted: true
+    });
+
+    // Subscribe to the channel we specified in our Laravel Event
+    var channel = pusher.subscribe('Bidding');
+
+    // Bind a function to a Event (the full Laravel class)
+    channel.bind('channel-bid', function(data) {
+        $('#best_user').text(data.best_user_name);
+        $('#price').text(data.price + ' VND');
+        console.log('hello');
+    });
+</script>
+
+<script type="text/javascript">
+    function startTimer(duration, display) {
+        var timer = duration, day, hour, minutes, seconds;
+        setInterval(function () {
+            if (timer >= 0) {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.text(minutes + ":" + seconds);
+                timer --;
+            } else {
+                $('#mytimer').text('Hết thời gian đấu giá');
+            }
+        }, 1000);
+    }
+
+    jQuery(function ($) {
+        var timeRemain = 15,
+            display = $('#mytimer');
+        startTimer(timeRemain, display);
+    });
+</script>
+
+@endsection
