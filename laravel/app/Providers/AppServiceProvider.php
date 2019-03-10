@@ -44,18 +44,20 @@ class AppServiceProvider extends ServiceProvider
 
         $global_settings = $default;
 
+        $menus_items_banner_left = MenuItem::getMenuItemsByBannerLeft();
+        $menus_items_banner_left_html = MenuItem::getMenuUlLi($menus_items_banner_left);
         $menus_items_header = MenuItem::getMenuItemsByHeader();
-        $menus_items_header_html = MenuItem::getMenuUlLi($menus_items_header);
         $menus_items_footer1 = MenuItem::getMenuItemsByFooter1();
         $menus_items_footer2 = MenuItem::getMenuItemsByFooter2();
-        $menus_items_footer3 = MenuItem::getMenuItemsByFooter3();
+
 
         View::share('fe_global_settings', $global_settings);
+        View::share('fe_menus_items_banner_left', $menus_items_banner_left);
+        View::share('fe_menus_items_banner_left_html', $menus_items_banner_left_html);
         View::share('fe_menus_items_header', $menus_items_header);
-        View::share('fe_menus_items_header_html', $menus_items_header_html);
         View::share('fe_menus_items_footer1', $menus_items_footer1);
         View::share('fe_menus_items_footer2', $menus_items_footer2);
-        View::share('fe_menus_items_footer3', $menus_items_footer3);
+        View::share('fe_menus_items_header', $menus_items_header);
 
     }
 

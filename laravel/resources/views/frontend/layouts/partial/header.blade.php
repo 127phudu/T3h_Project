@@ -8,16 +8,12 @@
             <input type="submit" value=" ">
         </form>
     </div>
-    <div class="product_list_header">
-        <form action="#" method="post" class="last">
-            <fieldset>
-                <input type="hidden" name="cmd" value="_cart" />
-                <input type="hidden" name="display" value="1" />
-                <input type="submit" name="submit" value="View your cart" class="button" />
-            </fieldset>
-        </form>
+
+    <div class="w3l_header_right1" style=" display: inline-block; float: right">
+        <h2><a href="mail.html">Contact Us</a></h2>
     </div>
-    <div class="w3l_header_right">
+
+    <div class="w3l_header_right" style="margin-right: 20px; display: inline-block; float: right">
         <ul>
             <li class="dropdown profile_details_drop">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
@@ -52,9 +48,7 @@
             </li>
         </ul>
     </div>
-    <div class="w3l_header_right1">
-        <h2><a href="mail.html">Contact Us</a></h2>
-    </div>
+
     <div class="clearfix"> </div>
 </div>
 <!-- script-for sticky-nav -->
@@ -82,18 +76,19 @@
         </div>
         <div class="w3ls_logo_products_left1">
             <ul class="special_items">
-                <li><a href="events.html">Events</a><i>/</i></li>
-                <li><a href="about.html">About Us</a><i>/</i></li>
-                <li><a href="products.html">Best Deals</a><i>/</i></li>
-                <li><a href="services.html">Services</a></li>
+                @foreach($fe_menus_items_header as $item)
+                    <li><a href="{{$item->link}}">{{$item->name}}</a><i>/</i></li>
+                @endforeach
             </ul>
         </div>
-        <div class="w3ls_logo_products_left1">
+
+        <div class="w3ls_logo_products_left1" style="float: right">
             <ul class="phone_email">
                 <li><i class="fa fa-phone" aria-hidden="true"></i>(+0123) 234 567</li>
                 <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:store@grocery.com">store@grocery.com</a></li>
             </ul>
         </div>
+
         <div class="clearfix"> </div>
     </div>
 </div>

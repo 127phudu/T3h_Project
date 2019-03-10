@@ -7,7 +7,7 @@
 <div class="w3l_banner_nav_right">
 
     <div class="agileinfo_single">
-        <h5><?php echo $product->name; ?></h5>
+        <h5><label><?php echo $product->name; ?></label></h5>
         <div class="col-md-4 agileinfo_single_left">
             <div class="flexslider">
                 <ul class="slides">
@@ -48,7 +48,7 @@
                         <div class="form-group">
                             <label for="priceCore" class="control-label col-sm-3">Giá hiện tại: </label>
                             <div class="col-sm-3">
-                                <p id="price"  style="padding-top: 7px"> <?php echo $product->priceSale; ?> VND</p>
+                                <p id="price"  style="padding-top: 7px"> <?php echo $product->price; ?> VND</p>
                             </div>
                             <input type="hidden" name="user_id" value="{{ $cur_user_id }}">
                         </div>
@@ -60,9 +60,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="priceSale" class="control-label col-sm-3">Giá đưa ra: </label>
+                            <label for="price" class="control-label col-sm-3">Giá đưa ra: </label>
                             <div class="col-sm-4">
-                                <input  name="priceSale" class="form-control tinymce" id="priceSale" value="{{ old('priceSale') }}">
+                                <input id="bid_price" name="price" class="form-control tinymce" id="price" value="{{ old('price') }}">
                             </div>
                         </div>
                             <button type="submit" name="submit" class="btn btn-danger">Ra giá</button>
@@ -110,27 +110,42 @@
     });
 </script>
 
+<?php
+    date_default_timezone_set("Asia/Ho_Chi_Minh");
+    $finish = strtotime($product->finish);
+    $now = time();
+?>
+
 <script type="text/javascript">
     function startTimer(duration, display) {
-        var timer = duration, day, hour, minutes, seconds;
+        var timer = duration, days, hours, minutes, seconds;
         setInterval(function () {
             if (timer >= 0) {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
+                temp = timer;
+                days = parseInt(temp / 86400, 10);
+                temp = parseInt(temp % 86400, 10);
+                hours = parseInt(temp / 3600, 10);
+                temp = parseInt(temp % 3600, 10);
+                minutes = parseInt(temp / 60, 10);
+                seconds = parseInt(temp % 60, 10);
 
+                hours = hours < 10 ? "0" + hours : hours;
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
 
-                display.text(minutes + ":" + seconds);
+                display.text(((days > 0) ? (days + " Ngày ") : '') + hours + ":" + minutes + ":" + seconds);
                 timer --;
             } else {
                 $('#mytimer').text('Hết thời gian đấu giá');
+                $('#bid_price').attr("disabled", true);
             }
         }, 1000);
     }
 
     jQuery(function ($) {
-        var timeRemain = 15,
+        var now = <?php echo $now ?>;
+        var finish = <?php echo $finish ?>;
+        var timeRemain = parseInt((finish - now), 10),
             display = $('#mytimer');
         startTimer(timeRemain, display);
     });

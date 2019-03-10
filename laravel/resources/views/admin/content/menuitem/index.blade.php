@@ -23,7 +23,6 @@
                 <th>Id</th>
                 <th>Tên</th>
                 <th>Kiểu</th>
-                <th>Param</th>
                 <th>Liên kết</th>
                 <th>Action</th>
             </tr>
@@ -34,7 +33,6 @@
                     <td>{{ $item['id'] }}</td>
                     <td>{{ str_repeat('-', $item['level']-1).$item['name'] }}</td>
                     <td>{{ $item['type'] }}</td>
-                    <td>{{ $item['params'] }}</td>
                     <td>{{ $item['link'] }}</td>
                     <td>
                         <a href="{{ url('admin/menuitems/'.$item['id'].'/edit') }}" class="btn btn-warning">Sửa</a>

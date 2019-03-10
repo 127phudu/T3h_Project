@@ -75,23 +75,24 @@
         </div>
 
         <div class="form-group">
-            <label for="priceCore" class="control-label col-sm-2">Giá niêm yết: </label>
+            <label for="priceFirst" class="control-label col-sm-2">Giá khởi điểm: </label>
             <div class="col-sm-10">
-                <input type="text" name="priceCore" class="form-control" id="priceCore" value="{{ $product->priceCore }}" required>
+                <input type="text" name="priceFirst" class="form-control" id="priceFirst" value="{{ $product->priceFirst }}" required>
             </div>
         </div>
+        <?php
+            $finish = str_replace(' ', 'T', $product->finish);
+            $finish = substr($finish, 0, -1);
+            $finish = substr($finish, 0, -1);
+            $finish = substr($finish, 0, -1);
+        ?>
         <div class="form-group">
-            <label for="priceSale" class="control-label col-sm-2">Giá bán: </label>
-            <div class="col-sm-10">
-                <input type="text" name="priceSale" class="form-control" id="priceSale" value="{{ $product->priceSale }}" required>
+            <label for="finish" class="control-label col-sm-2">Ngày kết thúc: </label>
+            <div class="col-sm-4">
+                <input type="datetime-local" name="finish" class="form-control" id="finish" value="{{ $finish }}" required>
             </div>
         </div>
-        <div class="form-group">
-            <label for="quantityInStock" class="control-label col-sm-2">Tồn kho: </label>
-            <div class="col-sm-10">
-                <input type="text" name="quantityInStock" class="form-control" id="quantityInStock" value="{{ $product->quantityInStock }}">
-            </div>
-        </div>
+
         <div class="form-group">
             <label for="intro" class="control-label col-sm-2">Giới thiệu: </label>
             <div class="col-sm-10">

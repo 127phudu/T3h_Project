@@ -20,10 +20,11 @@ class CreateShopProductTable extends Migration
             $table->text('images');
             $table->string('intro');
             $table->string('desc');
-            $table->integer('priceCore');
-            $table->integer('priceSale');
-            $table->integer('quantityInStock');
+            $table->integer('priceFirst');
+            $table->integer('price');
+            $table->integer('user_id');
             $table->integer('cat_id');
+            $table->dateTime('finish');
             $table->timestamps();
         });
     }

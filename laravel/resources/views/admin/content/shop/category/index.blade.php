@@ -24,8 +24,6 @@
                 <th>Tên</th>
                 <th>Slug</th>
                 <th>Ảnh</th>
-                <th>Giới thiệu</th>
-                <th>Mô tả</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -36,8 +34,6 @@
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->slug }}</td>
                     <td>{{ $item->images }}</td>
-                    <td>{{ $item->intro }}</td>
-                    <td>{{ $item->desc }}</td>
                     <td>
                         <a href="{{ url('admin/shop/category/'.$item->id.'/edit') }}" class="btn btn-warning">Sửa</a>
                         <a href="{{ url('admin/shop/category/'.$item->id.'/delete') }}" class="btn btn-danger">Xóa</a>

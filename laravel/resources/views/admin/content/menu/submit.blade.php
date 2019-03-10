@@ -30,7 +30,7 @@
         <div class="form-group">
             <label for="slug" class="control-label col-sm-2">Slug: </label>
             <div class="col-sm-10">
-                <input type="text" name="slug" class="form-control" id="slug" value="{{ old('slug') }}" required>
+                <input type="text" name="slug" class="form-control" id="slug" value="{{ old('slug') }}">
             </div>
         </div>
 

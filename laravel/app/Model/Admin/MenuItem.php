@@ -77,10 +77,10 @@ class MenuItem extends Model
         return $type;
     }
 
-    public static function getMenuItemsByHeader () {
-        $menu_header = DB::table('menus')->where('location','=', 1)->first();
-        if (isset($menu_header->id)){
-            $source = DB::table('menu_items')->where('menu_id','=', $menu_header->id)->orderBy('sort', 'ASC')->get()->toArray();
+    public static function getMenuItemsByBannerLeft () {
+        $menu_banner = DB::table('menus')->where('location','=', 1)->first();
+        if (isset($menu_banner->id)){
+            $source = DB::table('menu_items')->where('menu_id','=', $menu_banner->id)->orderBy('sort', 'ASC')->get()->toArray();
             $result = array();
             self::outputLevelCategories($source, $result);
         } else {
@@ -89,18 +89,17 @@ class MenuItem extends Model
         return $result;
     }
 
-    public static function getMenuItemsByFooter1 () {
+    public static function getMenuItemsByHeader () {
         $menu_header = DB::table('menus')->where('location','=', 2)->first();
         if (isset($menu_header->id)){
             $menu_items_header = DB::table('menu_items')->where('menu_id','=', $menu_header->id)->get();
         } else {
             $menu_items_header = array();
         }
-
         return $menu_items_header;
     }
 
-    public static function getMenuItemsByFooter2 () {
+    public static function getMenuItemsByFooter1 () {
         $menu_header = DB::table('menus')->where('location','=', 3)->first();
         if (isset($menu_header->id)){
             $menu_items_header = DB::table('menu_items')->where('menu_id','=', $menu_header->id)->get();
@@ -111,15 +110,18 @@ class MenuItem extends Model
         return $menu_items_header;
     }
 
-    public static function getMenuItemsByFooter3 () {
+    public static function getMenuItemsByFooter2 () {
         $menu_header = DB::table('menus')->where('location','=', 4)->first();
         if (isset($menu_header->id)){
             $menu_items_header = DB::table('menu_items')->where('menu_id','=', $menu_header->id)->get();
         } else {
             $menu_items_header = array();
         }
+
         return $menu_items_header;
     }
+
+
 
     public static function hasChild ($input_categories, $parent_id) {
         foreach ($input_categories as $category) {

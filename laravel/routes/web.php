@@ -56,15 +56,19 @@ Route::get('content/tag/{id}', 'Frontend\ContentTagController@detail');
 Route::get('content/post/{id}', 'Frontend\ContentPostController@detail');
 
 /**
- * Frontend route cart giỏ hàng
+ * Frontend route for customer
  */
-Route::get('shop/cart', 'Frontend\ShopCartController@index');
+Route::get('buyer/newPrize', 'Frontend\userController@newPrize');
+Route::get('buyer/bidding', 'Frontend\userController@bidding');
+Route::get('buyer/ordered', 'Frontend\userController@ordered');
+
 
 /**
  * Frontend route payment
  */
-Route::get('shop/payment', 'Frontend\ShopPaymentController@index');
-
+Route::get('shop/payment/{id}', 'Frontend\PaymentController@index');
+Route::get('shop/payment/after/update/{id}', 'Frontend\PaymentController@afterUpdate');
+Route::post('shop/payment', 'Frontend\PaymentController@update');
 
 /**
  * route cho admin
@@ -143,9 +147,14 @@ Route::prefix('admin')->group(function () {
     Route::post('shop/product/{id}', 'Admin\ShopProductController@update');
     Route::post('shop/product/{id}/delete', 'Admin\ShopProductController@destroy');
 
-    Route::get('shop/order', function () {
-        return view('admin/content/shop/adminOrder/index');
-    });
+    //----------------------admin order--------------------------
+    Route::get('shop/order', 'Admin\ShopOrderController@index');
+    Route::get('shop/order/{id}/edit', 'Admin\ShopOrderController@edit');
+    Route::get('shop/order/{id}/delete', 'Admin\ShopOrderController@delete');
+
+    Route::post('shop/order/{id}', 'Admin\ShopOrderController@update');
+    Route::post('shop/order/{id}/delete', 'Admin\ShopOrderController@destroy');
+
 
     Route::get('shop/review', function () {
         return view('admin/content/shop/review/index');

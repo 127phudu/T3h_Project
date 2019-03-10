@@ -97,14 +97,14 @@ class MenuItemController extends Controller
         $params = array();
 
         foreach ($types as $type_key => $type) {
-            $params[$type_key] = isset($input['param'.$type_key]) ? $input['param'.$type_key] : '';
+            $params[$type_key] = isset($input['param_'.$type_key]) ? $input['param_'.$type_key] : '';
         }
 
         $param_json = json_encode($params);
 
         $items->name = $input['name'];
         $items->sort = $input['sort'];
-        $items->type = $input['type'];
+        $items->type = (int) $input['type'];
 
         $final_link = '';
 
@@ -168,17 +168,9 @@ class MenuItemController extends Controller
 
         $param_json = json_encode($params);
 
-        $type[1] = 'Shop category';
-        $type[2] = 'Shop product';
-        $type[3] = 'Content category';
-        $type[4] = 'Content post';
-        $type[5] = 'Content page';
-        $type[6] = 'Content tag';
-        $type[7] = 'Custom link';
-
         $items->name = $input['name'];
         $items->sort = $input['sort'];
-        $items->type = $input['type'];
+        $items->type = (int) $input['type'];
 
         $final_link = '';
 

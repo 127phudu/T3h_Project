@@ -50,16 +50,6 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#"><i class="fa fa-link"></i> <span>Oder</span>
-                    <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ url('admin/shop/product/order') }}">Đặt sản phẩm</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
                 <a href="#"><i class="fa fa-link"></i> <span>Content</span>
                     <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>

@@ -70,8 +70,8 @@ class ShopProductController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'images' => 'required',
-            'priceCore' => 'required|numeric',
-            'priceSale' => 'required|numeric',
+            'priceFirst' => 'required|numeric',
+            'finish' => 'required',
         ]);
 
         $input = $request->all();
@@ -83,10 +83,11 @@ class ShopProductController extends Controller
         $items->images = json_encode($input['images']);
         $items->intro = isset($input['intro']) ? $input['intro'] : '';
         $items->desc = isset($input['desc']) ? $input['desc'] : '';
-        $items->priceCore = $input['priceCore'];
-        $items->priceSale = $input['priceSale'];
-        $items->quantityInStock = isset($input['quantityInStock']) ? $input['quantityInStock'] : 0;
+        $items->priceFirst = $input['priceFirst'];
+        $items->price = $input['priceFirst'];
+        $items->user_id = isset($input['user_id']) ? $input['user_id'] : 0;
         $items->cat_id = $input['cat_id'];
+        $items->finish = $input['finish'];
 
         $items->save();
 
@@ -97,8 +98,8 @@ class ShopProductController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'images' => 'required',
-            'priceCore' => 'required|numeric',
-            'priceSale' => 'required|numeric',
+            'priceFirst' => 'required|numeric',
+            'finish' => 'required',
         ]);
 
         $input = $request->all();
@@ -108,10 +109,11 @@ class ShopProductController extends Controller
         $items->images = json_encode($input['images']);
         $items->intro = isset($input['intro']) ? $input['intro'] : '';
         $items->desc = isset($input['desc']) ? $input['desc'] : '';
-        $items->priceCore = $input['priceCore'];
-        $items->priceSale = $input['priceSale'];
-        $items->quantityInStock = isset($input['quantityInStock']) ? $input['quantityInStock'] : 0;
+        $items->priceFirst = $input['priceFirst'];
+        $items->price = $input['priceFirst'];
+        $items->user_id = isset($input['user_id']) ? $input['user_id'] : 0;
         $items->cat_id = $input['cat_id'];
+        $items->finish = $input['finish'];
 
         $items->save();
 

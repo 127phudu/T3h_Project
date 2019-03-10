@@ -11,7 +11,7 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-            <?php  echo $fe_menus_items_header_html; ?>
+            <?php  echo $fe_menus_items_banner_left_html; ?>
         </div><!-- /.navbar-collapse -->
     </nav>
 </div>

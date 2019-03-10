@@ -24,9 +24,9 @@
                 <th>Tên</th>
                 <th>Slug</th>
                 <th style="width: 100px; text-align: center">Ảnh</th>
-                <th>Giá niêm yết</th>
-                <th>Giá bán</th>
-                <th>Tồn kho</th>
+                <th>Giá hiện tại</th>
+                <th>Giá khởi điểm</th>
+                <th>Best bidder</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -45,9 +45,9 @@
                         @endif
 
                     </td>
-                    <td>{{ $item->priceCore }}</td>
-                    <td>{{ $item->priceSale }}</td>
-                    <td>{{ $item->quantityInStock }}</td>
+                    <td>{{ $item->priceFirst }}</td>
+                    <td>{{ $item->price }}</td>
+                    <td>{{ $item->user_id }}</td>
                     <td>
                         <a href="{{ url('admin/shop/product/'.$item->id.'/edit') }}" class="btn btn-warning">Sửa</a>
                         <a href="{{ url('admin/shop/product/'.$item->id.'/delete') }}" class="btn btn-danger">Xóa</a>
