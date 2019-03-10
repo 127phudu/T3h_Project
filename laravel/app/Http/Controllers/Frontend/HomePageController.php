@@ -54,6 +54,13 @@ class HomePageController extends Controller
 
         $data['cats'] = $cats;
 
+        $recommends = DB::table('shop_product')
+            ->where('recommend', '=', 1)
+            ->limit(4)
+            ->get();
+
+        $data['recommends'] = $recommends;
+
         return view('frontend.homepages.home', $data);
     }
 

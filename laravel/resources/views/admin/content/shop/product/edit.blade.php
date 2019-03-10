@@ -16,6 +16,7 @@
             <label for="name" class="control-label col-sm-2">Tên: </label>
             <div class="col-sm-10">
                 <input type="text" name="name" class="form-control" id="name" value="{{ $product->name }}" required>
+                <input type="hidden" name="user_id" class="form-control" id="user_id" value="{{ $product->user_id }}" required>
             </div>
         </div>
         <div class="form-group">
@@ -29,6 +30,7 @@
                 </select>
             </div>
         </div>
+
         <div class="form-group">
             <label for="slug" class="control-label col-sm-2">Slug: </label>
             <div class="col-sm-10">
@@ -36,7 +38,18 @@
             </div>
         </div>
 
-        <?php
+        <div class="form-group">
+            <label for="recommend" class="control-label col-sm-2">Đề nghị: </label>
+            <div class="col-sm-10">
+                <select name="recommend">
+                    <option value="0" {{ ($product->recommend == 0) ? 'selected': '' }}>Không</option>
+                    <option value="1" {{ ($product->recommend == 1) ? 'selected': '' }}>Có</option>
+                </select>
+            </div>
+        </div>
+
+
+    <?php
             $m = json_decode($product->images);
 
             $images = isset( $m ) ? $m : array();
@@ -105,6 +118,7 @@
                 <textarea type="text" name="desc" class="form-control tinymce" id="desc" > {{ $product->desc }} </textarea>
             </div>
         </div>
+
 
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

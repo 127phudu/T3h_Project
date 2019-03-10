@@ -88,6 +88,7 @@ class ShopProductController extends Controller
         $items->user_id = isset($input['user_id']) ? $input['user_id'] : 0;
         $items->cat_id = $input['cat_id'];
         $items->finish = $input['finish'];
+        $items->recommend = $input['recommend'];
 
         $items->save();
 
@@ -114,6 +115,7 @@ class ShopProductController extends Controller
         $items->user_id = isset($input['user_id']) ? $input['user_id'] : 0;
         $items->cat_id = $input['cat_id'];
         $items->finish = $input['finish'];
+        $items->recommend = $input['recommend'];
 
         $items->save();
 

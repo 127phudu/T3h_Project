@@ -45,6 +45,15 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <label for="recommend" class="control-label col-sm-2">Đề nghị: </label>
+            <div class="col-sm-10">
+                <select name="recommend">
+                    <option value="0" {{ (old('recommend') == 0) ? 'selected': '' }}>Không</option>
+                    <option value="1" {{ (old('recommend') == 1) ? 'selected': '' }}>Có</option>
+                </select>
+            </div>
+        </div>
 
         <div class="form-group">
             <label for="images1" class="control-label col-sm-2">Ảnh 1: </label>
