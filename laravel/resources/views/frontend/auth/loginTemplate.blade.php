@@ -1,6 +1,6 @@
 @extends('frontend.layouts.userHome')
 
-@section('bannerRight')
+@section('content')
     <div class="w3l_banner_nav_right">
         <!-- login -->
         <div class="w3_login">

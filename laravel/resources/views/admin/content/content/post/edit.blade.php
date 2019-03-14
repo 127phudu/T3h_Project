@@ -37,6 +37,19 @@
                 </select>
             </div>
         </div>
+
+        <div class="form-group">
+            <label for="tag_id" class="control-label col-sm-2">Tag: </label>
+            <div class="col-sm-10">
+                <select name="tag_id">
+                    <option value="0">Không có tag</option>
+                    @foreach($tags as $tag)
+                        <option value="{{ $tag->id }}" @if ($tag->id == $post->tag_id) {{ 'selected' }} @endif>{{ $tag->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
         <div class="form-group">
             <label for="slug" class="control-label col-sm-2">Slug: </label>
             <div class="col-sm-10">

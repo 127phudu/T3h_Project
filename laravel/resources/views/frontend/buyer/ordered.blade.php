@@ -1,6 +1,6 @@
 @extends('frontend.layouts.userHome')
 
-@section('bannerRight')
+@section('content')
     <div class="w3l_banner_nav_right">
         <div class="w3ls_w3l_banner_nav_right_grid w3ls_w3l_banner_nav_right_grid_sub" style="padding-top: 0!important;">
             <h3><label style="font-weight: normal">Đơn hàng của bạn</label></h3>

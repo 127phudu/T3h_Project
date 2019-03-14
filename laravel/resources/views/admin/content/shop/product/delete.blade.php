@@ -1,7 +1,7 @@
 @extends('admin.layouts.adminlte')
 
 @section('title')
-    Sửa sản phẩm
+    Xóa sản phẩm
 @endsection
 
 @section('content-header')

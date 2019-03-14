@@ -19,8 +19,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 /**
  * Homepage route
  */
-
 Route::get('/', 'Frontend\HomePageController@index')->name('frontend.home');
+Route::post('newsletter', 'Frontend\NewsletterController@store');
+Route::get('newsletter', 'Frontend\NewsletterController@index');
+Route::post('search', 'Frontend\SearchController@index');
+
 
 /**
  * Frontend route shop category
@@ -58,9 +61,20 @@ Route::get('content/post/{id}', 'Frontend\ContentPostController@detail');
 /**
  * Frontend route for customer
  */
-Route::get('buyer/newPrize', 'Frontend\userController@newPrize');
-Route::get('buyer/bidding', 'Frontend\userController@bidding');
-Route::get('buyer/ordered', 'Frontend\userController@ordered');
+Route::get('buyer/newPrize', 'Frontend\UserController@newPrize');
+Route::get('buyer/bidding', 'Frontend\UserController@bidding');
+Route::get('buyer/ordered', 'Frontend\UserController@ordered');
+
+/**
+ * Frontend route for customer-seller
+ */
+Route::get('/seller/selling', 'Frontend\SellerController@index');
+Route::get('/seller/addNew', 'Frontend\SellerController@create');
+Route::get('/seller/product/{id}', 'Frontend\SellerController@edit');
+Route::get('/seller/product/delete/{id}', 'Frontend\SellerController@destroy');
+
+Route::post('/seller/addNew', 'Frontend\SellerController@store');
+Route::post('/seller/product/{id}', 'Frontend\SellerController@update');
 
 
 /**
@@ -69,6 +83,9 @@ Route::get('buyer/ordered', 'Frontend\userController@ordered');
 Route::get('shop/payment/{id}', 'Frontend\PaymentController@index');
 Route::get('shop/payment/after/update/{id}', 'Frontend\PaymentController@afterUpdate');
 Route::post('shop/payment', 'Frontend\PaymentController@update');
+
+
+
 
 /**
  * route cho admin
@@ -183,14 +200,14 @@ Route::prefix('admin')->group(function () {
 
 
     //admin seller
-    Route::get('shop/seller', 'Admin\SellerManagerController@index');
-    Route::get('shop/seller/create', 'Admin\SellerManagerController@create');
-    Route::get('shop/seller/{id}/edit', 'Admin\SellerManagerController@edit');
-    Route::get('shop/seller/{id}/delete', 'Admin\SellerManagerController@delete');
-
-    Route::post('shop/seller', 'Admin\SellerManagerController@store');
-    Route::post('shop/seller/{id}', 'Admin\SellerManagerController@update');
-    Route::post('shop/seller/{id}/delete', 'Admin\SellerManagerController@destroy');
+//    Route::get('shop/seller', 'Admin\SellerManagerController@index');
+//    Route::get('shop/seller/create', 'Admin\SellerManagerController@create');
+//    Route::get('shop/seller/{id}/edit', 'Admin\SellerManagerController@edit');
+//    Route::get('shop/seller/{id}/delete', 'Admin\SellerManagerController@delete');
+//
+//    Route::post('shop/seller', 'Admin\SellerManagerController@store');
+//    Route::post('shop/seller/{id}', 'Admin\SellerManagerController@update');
+//    Route::post('shop/seller/{id}/delete', 'Admin\SellerManagerController@destroy');
 
 
 
@@ -327,6 +344,17 @@ Route::prefix('admin')->group(function () {
     Route::post('newsletters/{id}', 'Admin\NewslettersController@update');
     Route::post('newsletters/{id}/delete', 'Admin\NewslettersController@destroy');
 
+    //--------------------Route admin phê duyệt sản phẩm ----------------------
+    //---------------------------------------------------------------
+    //---------------------------------------------------------------
+    Route::get('seller/registed_product', 'Admin\RegistedProductController@index');
+    Route::get('seller/registed_product/{id}/edit', 'Admin\RegistedProductController@edit');
+    Route::get('seller/registed_product/{id}/delete', 'Admin\RegistedProductController@delete');
+    Route::get('seller/registed_product/{id}/approved', 'Admin\RegistedProductController@approve');
+
+
+    Route::post('seller/registed_product/{id}', 'Admin\RegistedProductController@update');
+    Route::post('seller/registed_product/{id}/delete', 'Admin\RegistedProductController@destroy');
 
 });
 

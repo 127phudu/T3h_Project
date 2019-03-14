@@ -4,7 +4,7 @@
         {{ $page->name }}
     @endif
 @endsection
-@section('bannerRight')
+@section('content')
     @if(isset($page) && ($page->id > 0))
         <div class="w3l_banner_nav_right">
             <!-- content -->

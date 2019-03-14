@@ -77,4 +77,5 @@ class UserController extends Controller
         $data['products'] = $products;
         return view('frontend.buyer.ordered', $data);
     }
+
 }

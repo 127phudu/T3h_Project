@@ -1,6 +1,6 @@
 @extends('frontend.layouts.userHome')
 
-@section('bannerRight')
+@section('content')
     <div class="w3l_banner_nav_right">
         <section class="slider">
             <div class="flexslider">
@@ -101,7 +101,7 @@
                     <?php $isFirst = true; ?>
                     @foreach($cats as $cat)
                         <div id="tab{{ $cat->id }}" style="{{ $isFirst ? '' : 'display: none'}}" >
-                                <h4 style="margin-top: 20px; font-size: 30px; text-align: center;">{{ $cat->name }}</h4>
+                                <h4 style="margin-top: 20px; font-size: 30px; text-align: center;"><label style="font-weight: normal">{{ $cat->name }}</label></h4>
                                 <div class="agile_top_brands_grids">
                                     @if (count($top_bidding_by_cat[$cat->id]) == 0)
                                         <p style="text-align: center">Không có sản phẩm</p>
@@ -117,7 +117,7 @@
                                                                     <?php
                                                                     $images = (isset($product->images) && $product->images) ? json_decode($product->images) : array();
                                                                     ?>
-                                                                    <a href="{{ url('/shop/product/'.$product->id) }}" style="height: 150px"><img src="{{ asset($images[0]) }}" alt=" " class="img-responsive"></a>
+                                                                    <a href="{{ url('/shop/product/'.$product->id) }}" style="height: 160px"><img src="{{ asset($images[0]) }}" alt=" " class="img-responsive"></a>
                                                                     <p>{{ $product->name }}</p>
                                                                     <p>{{ $count_bid[$cat->id][$product->id] }} lượt ra giá</p>
                                                                     <h4>Giá hiện tại {{ $product->price }}</h4>
@@ -143,7 +143,7 @@
     <!-- top-brands -->
     <div class="top-brands">
         <div class="container">
-            <h3>New Products</h3>
+            <h3>Recommended</h3>
             <div class="agile_top_brands_grids">
 
                 @foreach($recommends as $recommend)

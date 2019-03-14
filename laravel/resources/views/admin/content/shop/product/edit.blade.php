@@ -50,32 +50,32 @@
 
 
     <?php
-            $m = json_decode($product->images);
+        $m = json_decode($product->images);
 
-            $images = isset( $m ) ? $m : array();
-            $i = 0;
-        ?>
+        $images = isset( $m ) ? $m : array();
+        $i = 0;
+    ?>
 
-        @foreach($images as $image)
-            <?php $i++; ?>
-            <div class="form-group">
-                <label for="images{{ $i }}" class="control-label col-sm-2">Ảnh {{ $i }}: </label>
-                <div class="col-sm-10">
-                    <div class="input-group">
-                    <span class="input-group-btn">
-                        <a id="lfm{{ $i }}" data-input="thumbnail{{ $i }}" data-preview="holder{{ $i }}" class="lfm-choose btn btn-primary">
-                            <i class="fa fa-picture-o"></i> Choose
-                        </a>
-                        <a class="btn btn-warning remove-image">
-                            <i class="fa fa-remove"> Xóa</i>
-                        </a>
-                    </span>
-                        <input id="thumbnail{{ $i }}" class="form-control" type="text" name="images[]" value="{{ $image }}" placeholder="Chọn ảnh">
-                    </div>
-                    <img id="holder{{ $i }}" src="{{ asset($image) }}" style="margin-top:15px;max-height:100px;">
+    @foreach($images as $image)
+        <?php $i++; ?>
+        <div class="form-group">
+            <label for="images{{ $i }}" class="control-label col-sm-2">Ảnh {{ $i }}: </label>
+            <div class="col-sm-10">
+                <div class="input-group">
+                <span class="input-group-btn">
+                    <a id="lfm{{ $i }}" data-input="thumbnail{{ $i }}" data-preview="holder{{ $i }}" class="lfm-choose btn btn-primary">
+                        <i class="fa fa-picture-o"></i> Choose
+                    </a>
+                    <a class="btn btn-warning remove-image">
+                        <i class="fa fa-remove"> Xóa</i>
+                    </a>
+                </span>
+                    <input id="thumbnail{{ $i }}" class="form-control" type="text" name="images[]" value="{{ $image }}" placeholder="Chọn ảnh">
                 </div>
+                <img id="holder{{ $i }}" src="{{ asset($image) }}" style="margin-top:15px;max-height:100px;">
             </div>
-        @endforeach
+        </div>
+    @endforeach
 
 
         <div class="form-group">

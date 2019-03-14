@@ -1,6 +1,6 @@
 @extends('frontend.layouts.userHome')
 
-@section('bannerRight')
+@section('content')
 <div class="w3l_banner_nav_right">
     <div class="w3ls_w3l_banner_nav_right_grid w3ls_w3l_banner_nav_right_grid_sub" style="padding-top: 0!important;">
         <h3><label style="font-weight: normal">{{ $category->name }}</label></h3>
@@ -21,7 +21,7 @@
                                                     <?php
                                                         $images = (isset($product->images) && $product->images) ? json_decode($product->images) : array();
                                                     ?>
-                                                    <a href="{{ url('/shop/product/'.$product->id) }}"><img src="{{ asset($images[0]) }}" alt=" " class="img-responsive"></a>
+                                                    <a href="{{ url('/shop/product/'.$product->id) }}" style="height: 160px"><img src="{{ asset($images[0]) }}" alt=" " class="img-responsive"></a>
                                                     <p>{{ $product->name }}</p>
                                                     <h4>Giá hiện tại {{ $product->price }}</h4>
                                                 </div>

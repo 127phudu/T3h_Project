@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Model\Front\Order;
+use App\Model\Front\RegistedProducts;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Console\Command;
 use Carbon\Carbon;
@@ -74,6 +75,10 @@ class ProductToOrderCron extends Command
                 $new_order->save();
 
                 DB::table('bid_history')->where('product_id', '=', $product->id)->delete();
+
+                DB::table('registed_products')
+                    ->where('sell_id', '=', $product->id)
+                    ->update(['status' => 2]);
             }
         }
     }

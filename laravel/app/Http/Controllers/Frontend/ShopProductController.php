@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Pusher\Pusher;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\MessageBag;
+
 
 
 class ShopProductController extends Controller
@@ -63,6 +65,13 @@ class ShopProductController extends Controller
 
     public function update (Request $request, $id) {
         $item = ShopProduct::find($id);
+
+        if ($item->seller_id == Auth::id()) {
+            $errors = new MessageBag();
+            // add your error messages:
+            $errors->add('my_error', 'Không thể ra giá cho sản phẩm bạn bán');
+            return redirect()->back()->withErrors($errors);
+        }
 
         $minPrice = $item->price + 100000;
 

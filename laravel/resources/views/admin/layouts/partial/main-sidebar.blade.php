@@ -41,14 +41,12 @@
                     <li><a href="{{ url('/admin/shop/category') }}">Danh mục</a></li>
                     <li><a href="{{ url('/admin/shop/product') }}">Sản phẩm</a></li>
                     <li><a href="{{ url('/admin/shop/order') }}">Đơn hàng</a></li>
-                    <li><a href="{{ url('/admin/shop/review') }}">Đánh giá</a></li>
                     <li><a href="{{ url('/admin/shop/customer') }}">Khách hàng</a></li>
-                    <li><a href="{{ url('/admin/shop/shipper') }}">Nhà vận chuyển</a></li>
-                    <li><a href="{{ url('/admin/shop/seller') }}">Nhà cung cấp</a></li>
                     <li><a href="{{ url('/admin/shop/brand') }}">Nhãn hiệu</a></li>
                     <li><a href="{{ url('/admin/shop/statistic') }}">Thống kê</a></li>
                 </ul>
             </li>
+            <li><a href="{{ url('/admin/seller/registed_product') }}"><i class="fa fa-link"></i> <span>Phê duyệt sản phẩm</span></a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-link"></i> <span>Content</span>
                     <span class="pull-right-container">
@@ -123,41 +121,41 @@
                     <li><a href="{{ url('/admin/banners') }}">Banners</a></li>
                 </ul>
             </li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-link"></i> <span>Contacts</span>
-                    <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ url('/admin/contacts') }}">Liên hệ</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-link"></i> <span>Email</span>
-                    <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ url('/admin/email/inbox') }}">Inbox</a></li>
-                    <li><a href="{{ url('/admin/email/draft') }}">Draft</a></li>
-                    <li><a href="{{ url('/admin/email/send') }}">Send</a></li>
-                </ul>
-            </li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link viet</span></a></li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-                    <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="#">Link in level 2</a></li>
-                    <li><a href="#">Link in level 2</a></li>
-                </ul>
-            </li>
+            {{--<li class="treeview">--}}
+                {{--<a href="#"><i class="fa fa-link"></i> <span>Contacts</span>--}}
+                    {{--<span class="pull-right-container">--}}
+                {{--<i class="fa fa-angle-left pull-right"></i>--}}
+              {{--</span>--}}
+                {{--</a>--}}
+                {{--<ul class="treeview-menu">--}}
+                    {{--<li><a href="{{ url('/admin/contacts') }}">Liên hệ</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
+            {{--<li class="treeview">--}}
+                {{--<a href="#"><i class="fa fa-link"></i> <span>Email</span>--}}
+                    {{--<span class="pull-right-container">--}}
+                {{--<i class="fa fa-angle-left pull-right"></i>--}}
+              {{--</span>--}}
+                {{--</a>--}}
+                {{--<ul class="treeview-menu">--}}
+                    {{--<li><a href="{{ url('/admin/email/inbox') }}">Inbox</a></li>--}}
+                    {{--<li><a href="{{ url('/admin/email/draft') }}">Draft</a></li>--}}
+                    {{--<li><a href="{{ url('/admin/email/send') }}">Send</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
+            {{--<li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>--}}
+            {{--<li><a href="#"><i class="fa fa-link"></i> <span>Another Link viet</span></a></li>--}}
+            {{--<li class="treeview">--}}
+                {{--<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>--}}
+                    {{--<span class="pull-right-container">--}}
+                {{--<i class="fa fa-angle-left pull-right"></i>--}}
+              {{--</span>--}}
+                {{--</a>--}}
+                {{--<ul class="treeview-menu">--}}
+                    {{--<li><a href="#">Link in level 2</a></li>--}}
+                    {{--<li><a href="#">Link in level 2</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
         </ul>
         <!-- /.sidebar-menu -->
     </section>

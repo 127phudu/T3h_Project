@@ -1,6 +1,6 @@
 @extends('frontend.layouts.userHome')
 
-@section('bannerRight')
+@section('content')
     <style type="text/css">
 
         #payment-form .row {

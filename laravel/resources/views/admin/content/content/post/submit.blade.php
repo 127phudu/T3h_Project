@@ -39,6 +39,17 @@
             </div>
         </div>
         <div class="form-group">
+            <label for="tag_id" class="control-label col-sm-2">Tag: </label>
+            <div class="col-sm-10">
+                <select name="tag_id">
+                    <option value="0">Không có tag</option>
+                    @foreach($tags as $tag)
+                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
             <label for="slug" class="control-label col-sm-2">Slug: </label>
             <div class="col-sm-10">
                 <input type="text" name="slug" class="form-control" id="slug" value="{{ old('slug') }}">

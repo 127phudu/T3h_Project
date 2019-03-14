@@ -10,7 +10,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <title>@yield('title')</title>
     <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
     <meta name="keywords" content="Grocery Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
@@ -37,6 +38,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         });
     </script>
+    <script src="{{ asset('admin-asset/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+
+    <script>
+        // tinymce.init({
+        //     selector: 'textarea.tinymce',
+        //     plugins: [
+        //         'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+        //         'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+        //         'save table contextmenu directionality emoticons template paste textcolor'
+        //     ],
+        //     height: 300,
+        //     toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons',
+        //
+        // });
+
+        var editor_config = {
+            path_absolute : "http://localhost/T3h_Project/laravel/public/",
+            selector: "textarea.tinymce",
+            plugins: [
+                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                "searchreplace wordcount visualblocks visualchars code fullscreen",
+                "insertdatetime media nonbreaking save table contextmenu directionality",
+                "emoticons template paste textcolor colorpicker textpattern"
+            ],
+            height: 300,
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent ",
+            relative_urls: false,
+            file_browser_callback : function(field_name, url, type, win) {
+                var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+                var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
+
+
+                tinyMCE.activeEditor.windowManager.open({
+                    file : cmsURL,
+                    title : 'Filemanager',
+                    width : x * 0.8,
+                    height : y * 0.8,
+                    resizable : "yes",
+                    close_previous : "no"
+                });
+            }
+        };
+
+        tinymce.init(editor_config);
+    </script>
     <!-- start-smoth-scrolling -->
 </head>
 
@@ -48,7 +94,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="banner">
     @include('frontend.layouts.partial.bannerLeft')
     {{--@include('frontend.layouts.partial.bannerRight')--}}
-    @yield('bannerRight')
+    <div class="w3l_banner_nav_right">
+        @yield('bannerRight')
+    </div>
+
+    @yield('content')
     <div class="clearfix"></div>
 </div>
 <!-- banner -->

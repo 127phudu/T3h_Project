@@ -1,6 +1,6 @@
 @extends('frontend.layouts.userHome')
 
-@section('bannerRight')
+@section('content')
 
     <?php
     $images = isset($product->images) ? json_decode($product->images) : array();

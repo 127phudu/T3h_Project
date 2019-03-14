@@ -3,8 +3,9 @@
         <a href="products.html">Today's special Offers !</a>
     </div>
     <div class="w3l_search">
-        <form action="#" method="post">
-            <input type="text" name="Product" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
+        <form action="{{url('search')}}" method="post">
+            @csrf
+            <input type="text" name="name" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
             <input type="submit" value=" ">
         </form>
     </div>
@@ -82,7 +83,7 @@
             </ul>
         </div>
 
-        <div class="w3ls_logo_products_left1" style="float: right">
+        <div class="w3ls_logo_products_left1" style="margin-left: 0 ;float: right">
             <ul class="phone_email">
                 <li><i class="fa fa-phone" aria-hidden="true"></i>(+0123) 234 567</li>
                 <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:store@grocery.com">store@grocery.com</a></li>

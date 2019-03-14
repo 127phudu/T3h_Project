@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\Admin\ContentTag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\ContentCategory;
@@ -37,10 +38,12 @@ class ContentPostController extends Controller
     public function edit($id) {
         $items = ContentPost::find($id);
         $cats = ContentCategory::all();
+        $tags = ContentTag::all();
         $data = array();
         $data['id'] = $id;
         $data['post'] = $items;
         $data['cats'] = $cats;
+        $data['tags'] = $tags;
         return view('admin.content.content.post.edit', $data);
 
     }
@@ -86,6 +89,7 @@ class ContentPostController extends Controller
         $items->author_id = isset($input['author_id']) ? $input['author_id'] : 0;
         $items->view = isset($input['view']) ? $input['view'] : 0;
         $items->cat_id = $input['cat_id'];
+        $items->tag_id = isset($input['tag_id']) ? $input['tag_id'] : 0;
 
         $items->save();
 
@@ -111,6 +115,7 @@ class ContentPostController extends Controller
         $items->view = isset($input['view']) ? $input['view'] : 0;
         $items->author_id = isset($input['author_id']) ? $input['author_id'] : 0;
         $items->cat_id = $input['cat_id'];
+        $items->tag_id = isset($input['tag_id']) ? $input['tag_id'] : 0;
 
         $items->save();
 
