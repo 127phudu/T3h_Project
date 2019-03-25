@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <form  class="form-horizontal" action="{{ url('admin/seller/registed_product/'.$product->id) }}" method="post">
+    <form  class="form-horizontal" action="{{ url('admin/registed_product/'.$product->id) }}" method="post">
         @csrf
         <div class="form-group">
             <label for="name" class="control-label col-sm-2">Tên: </label>

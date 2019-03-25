@@ -56,6 +56,7 @@ class HomePageController extends Controller
 
         $recommends = DB::table('shop_product')
             ->where('recommend', '=', 1)
+            ->orderBy('updated_at', 'ASC')
             ->limit(4)
             ->get();
 

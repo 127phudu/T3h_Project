@@ -10,13 +10,9 @@
 @endsection
 
 @section('content')
-    <div>
-        <a href="{{ url('/admin/shop/customer/create') }}" class="btn btn-primary">Thêm khách hàng</a>
-    </div>
-
 
     <div class="table">
-        <h4>Tổng số</h4>
+        <h4>Tổng số: <?php echo count($customers); ?></h4>
         <table class="table table-striped table-bordered">
             <thead>
             <tr>

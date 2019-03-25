@@ -4,6 +4,7 @@
     {{$category->name}}
 @endsection
 
+
 @section('bannerRight')
     <h1 style="text-align: center"><label style="font-weight: normal;">{{$category->name}}</label></h1>
 

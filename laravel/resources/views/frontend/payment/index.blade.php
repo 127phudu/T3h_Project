@@ -1,5 +1,9 @@
 @extends('frontend.layouts.userHome')
 
+@section('title')
+    Đơn hàng
+@endsection
+
 @section('content')
     <style type="text/css">
 

@@ -222,10 +222,6 @@ Route::prefix('admin')->group(function () {
     Route::post('shop/brand/{id}/delete', 'Admin\ShopBrandController@destroy');
 
 
-    Route::get('shop/statistic', function () {
-        return view('admin/content/shop/statistic/index');
-    });
-
     Route::get('shop/product/order', function () {
         return view('admin/content/adminOrder/index');
     });
@@ -347,14 +343,14 @@ Route::prefix('admin')->group(function () {
     //--------------------Route admin phê duyệt sản phẩm ----------------------
     //---------------------------------------------------------------
     //---------------------------------------------------------------
-    Route::get('seller/registed_product', 'Admin\RegistedProductController@index');
-    Route::get('seller/registed_product/{id}/edit', 'Admin\RegistedProductController@edit');
-    Route::get('seller/registed_product/{id}/delete', 'Admin\RegistedProductController@delete');
-    Route::get('seller/registed_product/{id}/approved', 'Admin\RegistedProductController@approve');
+    Route::get('registed_product', 'Admin\RegistedProductController@index');
+    Route::get('registed_product/{id}/edit', 'Admin\RegistedProductController@edit');
+    Route::get('registed_product/{id}/delete', 'Admin\RegistedProductController@delete');
+    Route::get('registed_product/{id}/approved', 'Admin\RegistedProductController@approve');
 
 
-    Route::post('seller/registed_product/{id}', 'Admin\RegistedProductController@update');
-    Route::post('seller/registed_product/{id}/delete', 'Admin\RegistedProductController@destroy');
+    Route::post('registed_product/{id}', 'Admin\RegistedProductController@update');
+    Route::post('registed_product/{id}/delete', 'Admin\RegistedProductController@destroy');
 
 });
 

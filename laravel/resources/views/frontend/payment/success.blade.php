@@ -1,5 +1,9 @@
 @extends('frontend.layouts.userHome')
 
+@section('title')
+    Đặt hàng thành công
+@endsection
+
 @section('content')
 
     <?php

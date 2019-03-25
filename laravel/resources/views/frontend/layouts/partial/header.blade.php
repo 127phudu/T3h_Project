@@ -1,17 +1,17 @@
 <div class="agileits_header">
     <div class="w3l_offers">
-        <a href="products.html">Today's special Offers !</a>
+        <a>Đấu giá trực tuyến</a>
     </div>
     <div class="w3l_search">
         <form action="{{url('search')}}" method="post">
             @csrf
-            <input type="text" name="name" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
+            <input type="text" name="name" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tìm sản phẩm...';}" required="">
             <input type="submit" value=" ">
         </form>
     </div>
 
     <div class="w3l_header_right1" style=" display: inline-block; float: right">
-        <h2><a href="mail.html">Contact Us</a></h2>
+        <h2><a><label style="font-weight: normal">Liên hệ</label></a></h2>
     </div>
 
     <div class="w3l_header_right" style="margin-right: 20px; display: inline-block; float: right">
@@ -86,7 +86,7 @@
         <div class="w3ls_logo_products_left1" style="margin-left: 0 ;float: right">
             <ul class="phone_email">
                 <li><i class="fa fa-phone" aria-hidden="true"></i>(+0123) 234 567</li>
-                <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:store@grocery.com">store@grocery.com</a></li>
+                <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a>store@grocery.com</a></li>
             </ul>
         </div>
 

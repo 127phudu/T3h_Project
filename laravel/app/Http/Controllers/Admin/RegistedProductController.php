@@ -12,13 +12,18 @@ use Illuminate\Support\Facades\DB;
 class RegistedProductController extends Controller
 {
     //
-    public function index() {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
 
+    public function index() {
         $items = DB::table('registed_products')
                 ->where('status', 0)
                 ->paginate(10);
         $data = array();
         $data['products'] = $items;
+
 
         return view('admin.content.registed_product.index', $data);
     }
@@ -61,7 +66,7 @@ class RegistedProductController extends Controller
 
         $items->save();
 
-        return redirect('/admin/seller/registed_product');
+        return redirect('/admin/registed_product');
     }
 
     public function slugify ($str) {
@@ -102,7 +107,7 @@ class RegistedProductController extends Controller
         $registed_product->sell_id = $items->id;
         $registed_product->save();
 
-        return redirect('/admin/seller/registed_product');
+        return redirect('/admin/registed_product');
 
     }
 
@@ -113,6 +118,6 @@ class RegistedProductController extends Controller
 
         $items->save();
 
-        return redirect('/admin/seller/registed_product');
+        return redirect('/admin/registed_product');
     }
 }

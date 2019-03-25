@@ -11,7 +11,7 @@
 @section('content')
 
     <div class="table">
-        <h4>Tổng số</h4>
+        <h4>Tổng số: <?php echo count($products); ?></h4>
         <table class="table table-striped table-bordered">
             <thead>
             <tr>
@@ -42,9 +42,9 @@
                     <td>{{ $item->price }}</td>
                     <td>{{ $item->seller_id }}</td>
                     <td>
-                        <a href="{{ url('admin/seller/registed_product/'.$item->id.'/approved') }}" class="btn btn-success">Duyệt</a>
-                        <a href="{{ url('admin/seller/registed_product/'.$item->id.'/edit') }}" class="btn btn-warning">Sửa</a>
-                        <a href="{{ url('admin/seller/registed_product/'.$item->id.'/delete') }}" class="btn btn-danger">Xóa</a>
+                        <a href="{{ url('admin/registed_product/'.$item->id.'/approved') }}" class="btn btn-success">Duyệt</a>
+                        <a href="{{ url('admin/registed_product/'.$item->id.'/edit') }}" class="btn btn-warning">Sửa</a>
+                        <a href="{{ url('admin/registed_product/'.$item->id.'/delete') }}" class="btn btn-danger">Xóa</a>
                     </td>
                 </tr>
             @endforeach

@@ -16,7 +16,7 @@
 
 
     <div class="table">
-        <h4>Tổng số</h4>
+        <h4>Tổng số: <?php echo count($posts); ?></h4>
         <table class="table table-striped table-bordered">
             <thead>
             <tr>

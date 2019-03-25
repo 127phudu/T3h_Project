@@ -1,5 +1,6 @@
 @extends('frontend.layouts.userHome')
 @section('title')
+    Trang
     @if(isset($page) && ($page->id > 0))
         {{ $page->name }}
     @endif

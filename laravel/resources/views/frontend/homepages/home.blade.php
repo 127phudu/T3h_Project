@@ -1,5 +1,9 @@
 @extends('frontend.layouts.userHome')
 
+@section('title')
+    Đấu giá trực tuyến
+@endsection
+
 @section('content')
     <div class="w3l_banner_nav_right">
         <section class="slider">
@@ -84,7 +88,7 @@
     </style>
     <div class="fresh-vegetables">
         <div class="container">
-            <h3>Hot Products</h3>
+            <h3><label style="font-weight: normal">Sản phẩm được quan tâm</label></h3>
             <div class="w3l_fresh_vegetables_grids">
                 <div class="col-md-3 w3l_fresh_vegetables_grid w3l_fresh_vegetables_grid_left">
                     <div class="w3l_fresh_vegetables_grid2">
@@ -143,7 +147,7 @@
     <!-- top-brands -->
     <div class="top-brands">
         <div class="container">
-            <h3>Recommended</h3>
+            <h3><label style="font-weight: normal">Giới thiệu</label></h3>
             <div class="agile_top_brands_grids">
 
                 @foreach($recommends as $recommend)

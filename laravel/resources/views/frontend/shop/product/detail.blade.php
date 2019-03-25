@@ -1,5 +1,10 @@
 @extends('frontend.layouts.userHome')
 
+@section('title')
+    {{$product->name}}
+@endsection
+
+
 @section('content')
 <?php
     $images = isset($product->images) ? json_decode($product->images) : array();
@@ -84,7 +89,8 @@
     $(window).load(function() {
         $('.flexslider').flexslider({
             animation: "slide",
-            controlNav: "thumbnails"
+            controlNav: "thumbnails",
+            itemMargin: 20
         });
     });
 </script>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Model\Admin\ShopCategory;
 use App\Model\Front\RegistedProducts;
+use App\Model\Front\ShopProduct;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -24,10 +25,17 @@ class SellerController extends Controller
 
         $id = Auth::id();
 
-        $products = DB::table('registed_products')
+        $registed_products = DB::table('registed_products')
                 ->where('seller_id' , $id)
                 ->get();
 
+        $products = array();
+
+        foreach ($registed_products as $key => $registed_product) {
+            $products[$key] = ShopProduct::find($registed_product->sell_id);
+        }
+
+        $data['registed_products'] = $registed_products;
         $data['products'] = $products;
 
         return view('frontend.seller.index', $data);
